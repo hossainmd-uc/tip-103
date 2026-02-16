@@ -43,11 +43,32 @@ def tiggerfy(word):
     print(word)
 
 
-word = "Trigger"
-tiggerfy(word)
+# One Pass
+def tiggerfy2(word):
+    i = 0
+    final = []
+    two_match = ["gg", "er"]
 
-word = "eggplant"
-tiggerfy(word)
+    while i < len(word):
+        one_letter = word[i].lower()
+        two_letter = word[i : i + 2].lower()
 
-word = "Choir"
-tiggerfy(word)
+        if one_letter in ["t", "i"]:
+            i += 1
+        elif two_letter in two_match:
+            i += 2
+        else:
+            final.append(word[i])
+            i += 1
+
+    return "".join(final)
+
+
+# word = "Trigger"
+# tiggerfy2(word)
+
+# word = "eggplant"
+# print(tiggerfy2(word))
+
+# word = "Choir"
+# print(tiggerfy2(word))
